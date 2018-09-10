@@ -70,4 +70,10 @@ public abstract class Command {
     public void setTargetIndex(int targetIndex) {
         this.targetIndex = targetIndex;
     }
+
+    public boolean isMutating(CommandResult command){
+        return command.feedbackToUser == AddCommand.MESSAGE_SUCCESS ||
+                command.feedbackToUser == ClearCommand.COMMAND_WORD ||
+                command.feedbackToUser == DeleteCommand.COMMAND_WORD;
+    }
 }
