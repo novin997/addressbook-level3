@@ -60,6 +60,7 @@ public class AddCommand extends Command {
     public CommandResult execute() {
         try {
             addressBook.addPerson(toAdd);
+            System.out.print(toAdd.getPrintableString(toAdd.getName(),toAdd.getAddress(),toAdd.getEmail(),toAdd.getPhone()));
             return new CommandResult(String.format(MESSAGE_SUCCESS, toAdd));
         } catch (UniquePersonList.DuplicatePersonException dpe) {
             return new CommandResult(MESSAGE_DUPLICATE_PERSON);
